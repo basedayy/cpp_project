@@ -1,0 +1,14 @@
+- Menüsteuerung / 90% finished. modularsiert
+- Ein Spieler spielt gegen den Rechner
+- Der Rechner gibt eine geheime Kombination vor
+- Ein richtiger Stift an der richtigen Stelle wird schwarz markiert / =
+- Eine richtige Farbe an der falschen Stelle wird weiß markiert / ~
+- Es stehen fünf Farben zur Verfügung / modulasiert.
+- Der Farbcode besteht aus fünf Stiften - stehen in einem string array
+- Der Spieler kann den aktuellen Spielstand am Ende eines Rateversuchs auf Platte speichern
+- Ein gespeichertes Spiel kann geladen werden und an der jeweiligen Stelle fortgesetzt werden
+- Nach maximal 10 Rateversuchen wird das Spiel beendet / modulasiert.
+- Graphisch ansprechende Oberfläche (Im Rahmen der Möglichkeiten der Konsole) / UI.cpp
+- Modulare Programmierung in separaten Dateien / steht
+- Dokumentation / wird bearbeitet
+- Abgabe der Arbeit am 30. Juni 2024

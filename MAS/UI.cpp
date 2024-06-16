@@ -3,10 +3,11 @@
 #include <iostream>
 #include <stdlib.h>
 #include "game.h"
+#include <conio.h>
 
 
 using namespace std;
-int ioption;
+char ioption;
 extern int length;
 extern int max_tries;
 
@@ -23,6 +24,11 @@ void creds(){
 	cout << "\t Ayham AQ - coding\n \n "<< endl;
 	printf("\t Jan Fribus - \n \n");
 	printf("\t Vinzenz schoch - \n \n");
+	printf("\t press any key to get back... \n \n");
+	
+	getch();
+	
+	men();
 	
 }
 
@@ -36,12 +42,12 @@ void settingsmen(){
 	printf("\t 4 - back\n \n");
 	
 	
-	scanf("%i",&ioption);
+	ioption = getch();
 	
 	
-	//bool bpicked = false;
-   // while(ioption < 1 || ioption > 4)
-//	{
+	bool bpicked = false;
+    while(!bpicked)
+	{
 		
 			switch(ioption)
 		{
@@ -63,30 +69,35 @@ void settingsmen(){
 			break;
 			case 3:
 				creds();
-			//	bpicked = true;
+				bpicked = true;
 			break;
 			case 4:
 				men();
 				return;
-			//	bpicked = true;
+				bpicked = true;
 			break;
 			default:
 				printf("invalid... try again.");
+				/**
 				system("cls");
 				printf("\n \n \n");
 				printf("\t 1 - set game color length\n \n");
 				printf("\t 2 - set max tries\n \n ");
 				printf("\t 3 - credits\n \n");
-				printf("\t 4 - back\n \n");
+				printf("\t 4 - back\n \n"); **/
+				settingsmen();
 				
 			 	
 			
-			}
 		}
+	}
+}
 	
 			
 		
-/**void men(){
+/**
+
+void men(){
 	string print way dont forget
 	printf(Title.c_str());
 	printf("\n \n \n");

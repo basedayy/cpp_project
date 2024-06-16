@@ -13,71 +13,87 @@ string cols[] = {"g - green","r - red","w - white","y - yellow","p - pink"};
 int max_tries= 10;
 int length= 3;
 string Title = "\n \n \n \21 Welcome to mastermind";
-extern int ioption;
+char ioption;
+
+
 
 
 
 void men(){
-	system("cls");
-	//string print way dont forget
-	printf(Title.c_str());
-	printf("\n \n \n");
-	printf("\t 1 - play\n \n");
-	printf("\t 2 - options\n \n ");
-	printf("\t 3 - Load Game\n \n")
-	printf("\t 4 - credits\n \n");
-	printf("\t 5 - quit\n \n");
-	
-	
-	scanf("%i",&ioption);
 	
 	
 	bool bpicked = false;
-    while(bpicked = false)
+	
+	while(!bpicked)
 	{
-		//ioption = 0;
+		system("cls");
+		//string print way dont forget
+		printf(Title.c_str());
+		printf("\n \n \n");
+		printf("\t 1 - play\n \n");
+		printf("\t 2 - options\n \n ");
+		printf("\t 3 - Load Game\n \n");
+		printf("\t 4 - credits\n \n");
+		printf("\t 5 - quit\n \n");
+	
+	
+		ioption = getch();
+	
+	
+	
+    
+		
 		switch(ioption)
 		{
-			case 1:
+			case '1':
 				printf("going in game \n ");
 				playy();
 				
-				//bpicked = true;
+				bpicked = true;
 				break;
-			case 2:
+			case '2':
 				settingsmen();
-			//	bpicked = true;
+				bpicked = true;
+				break;
+			case '3':
+		    case 'l':
+			//LOAD GAME. fucking hell after 7 hours of coding straight i realized. km
+			cout << "loading game";
+				
 			break;
-			case 3:
+			case '4':
+			case 'c':
 				creds();
-			//	bpicked = true;
+				bpicked = true;
 			break;
-			case 4:
+			case '5':
+				
 				printf("exiting...");
-				exit(1);
-			//	bpicked = true;
-			break;
-			case 5:
-				//LOAD GAME. fucking hell after 7 hours of coding straight i realized. kms
+				exit(0);
+			
 				
 			break;
 			default:
+				
 				printf("invalid... try again.");
-			 	men();
+				break;
+			 	
+			 	
 			 	
 			
-			}
-			
-		
+		}
 		
 	}
 			
-	
-	
-	
-	ioption = 0;
-	
+		
 }
+			
+	
+	
+	
+	
+	
+
 
 
 

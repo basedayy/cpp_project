@@ -1,4 +1,4 @@
-void men();
+
 void settingsmen();
-extern int ioption;
+extern char ioption;
 void creds();
