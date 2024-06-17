@@ -13,17 +13,14 @@ string cols[] = {"g - green","r - red","w - white","y - yellow","p - pink"};
 int max_tries= 10;
 int length= 3;
 string Title = "\n \n \n \21 Welcome to mastermind";
-char ioption;
-
-
+extern int ioption;
 
 
 
 void men(){
 	
-	
 	bool bpicked = false;
-	
+	//looping menu
 	while(!bpicked)
 	{
 		system("cls");
@@ -37,54 +34,48 @@ void men(){
 		printf("\t 5 - quit\n \n");
 	
 	
-		ioption = getch();
+		scanf("%i",&ioption);
 	
 	
-	
-    
 		
+    
+		//ioption = 0;
 		switch(ioption)
 		{
-			case '1':
+			case 1:
 				printf("going in game \n ");
 				playy();
 				
 				bpicked = true;
 				break;
-			case '2':
+			case 2:
 				settingsmen();
 				bpicked = true;
-				break;
-			case '3':
-		    case 'l':
-			//LOAD GAME. fucking hell after 7 hours of coding straight i realized. km
-			cout << "loading game";
-				
 			break;
-			case '4':
-			case 'c':
+			case 3:
+				//LOAD GAME. fucking hell after 7 hours of coding straight i realized. kms
+				printf("loading....");
+			break;
+			
+			case 4:
 				creds();
 				bpicked = true;
 			break;
-			case '5':
-				
+			case 5:
 				printf("exiting...");
-				exit(0);
-			
-				
+				exit(1);
+				bpicked = true;
 			break;
+			
 			default:
-				
 				printf("invalid... try again.");
-				break;
 			 	
-			 	
+			 	break;
 			 	
 			
 		}
-		
-	}
 			
+	}
 		
 }
 			
