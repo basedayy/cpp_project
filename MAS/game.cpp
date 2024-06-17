@@ -74,7 +74,6 @@ poss(){
 	//erste schritt. filter alle richtige mit =
 	for (int i = 0; i < len; ++i){
 		if(gameletters[i] == playerguess[i]){
-			
 			result[i] = '=';
 			
 		}
@@ -125,7 +124,6 @@ void playy(){
 	cout << gameletters;
 	//solange es ist nicht 0
 	while(cur_tries != 0){
-		
 		char tmp[length];
 		scanf("%s", tmp);
 		playerguess = tmp;
@@ -143,10 +141,8 @@ void playy(){
 			break;
 		}
 		
-		cur_tries--;
-		
 		cout << cur_tries << " left." << endl;	
-		
+		cur_tries--;
 		
 	}
 		
