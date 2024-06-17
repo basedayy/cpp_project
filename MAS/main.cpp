@@ -34,10 +34,17 @@ void loadgame(){
 					
 				struct player seledpl =  selpl(players);
 					
-				cout << "you selected: " << seledpl.name <<"\n with winstreak of" << seledpl.playerwinstreak << endl;
+				cout << "you selected: " << seledpl.name <<"\n with winstreak of " << seledpl.playerwinstreak << endl;
+				getch();
+				
+				player.playerwinstreak = seledpl.playerwinstreak;
+				player.name = seledpl.name;
+				winstreak = seledpl.playerwinstreak;
 			}
 			 else{
 				cout << "no players found.." << endl;
+				
+				
 			}
 }
 
@@ -89,8 +96,8 @@ void men(){
 				
 				loadgame();
 				
-				break;
-			
+				
+			    break;
 			case '4':
 			case 'c':
 				creds();
@@ -105,6 +112,7 @@ void men(){
 			
 			default:
 				printf("invalid... try again.");
+			 	
 			 	
 			 	break;
 			 	

@@ -73,22 +73,26 @@ void savegame(const player playerr,const string filename){
 		
 		cout << "choose the player you want!" << endl;
 		
-		scanf("%i", &playerselopt);
+		cin >> playerselopt;
 		
-		if(cin.fail() || playerselopt < 1 || static_cast<size_t> (playerselopt) > players.size()){
-			/**cin.clear();
+		if(cin.fail() || playerselopt < 1 || playerselopt > static_cast<int>(players.size())){
+			cin.clear();
 			//ignoriert alle die über der spielerzahl oder unter 1 oder wenn es eine buchstabe wäre.
 			
 			cin.ignore(numeric_limits<streamsize>::max(),'\n');
-			**/
-			cout << "invalid choice. try again";
+			
+			cout << "invalid choice. try again, please enter a number between 1 and " << players.size()<< "." << endl;
+			
 			
 		}
 		else {
-			break;
+			plselected = true;
+			return players[playerselopt - 1];
+			
+			
 		}
 		
-		return players[playerselopt - 1];
+		
 	}
  }
 
