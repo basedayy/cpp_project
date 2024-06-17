@@ -22,9 +22,9 @@ void savegame(const player playerr,const string filename){
 		file << playerr.playerwinstreak << endl;
 		
 		file.close();
-		cout << "game Saved!" << endl;
+		cout << "Spiel gespeichert!" << endl;
 	}else{
-		cerr << "unable to open file for saving." << endl;
+		cerr << "Gepeicherter Spielstand konnte nicht Geoeffnet werden." << endl;
 	}
 }
 
@@ -47,11 +47,11 @@ void savegame(const player playerr,const string filename){
 		 }
 		 file.close();
 		 
-		 cout << "loaded list" << endl;
+		 cout << "Geladene Liste" << endl;
  		
 	 }else{
 	 	
-	 	cerr << "bad. didnt load" << endl;
+	 	cerr << "Schlecht. hat nicht geladen" << endl;
 	 	
 	 	
 	 }
@@ -60,7 +60,7 @@ void savegame(const player playerr,const string filename){
  
  //select players func
  player selpl(vector<player> players){
- 	cout << "the players: " << endl;
+ 	cout << "Der Spieler: " << endl;
  	
  	//durch alle spieler wiedeholen (scan players)
 	for (size_t i = 0; i < players.size(); i++){
@@ -74,7 +74,7 @@ void savegame(const player playerr,const string filename){
 	//solange keinspieler würde genomen
 	while(!plselected) {
 		
-		cout << "choose the player you want!" << endl;
+		cout << "Spieler auswahl!" << endl;
 		
 		cin >> playerselopt;
 		
@@ -84,7 +84,7 @@ void savegame(const player playerr,const string filename){
 			
 			cin.ignore(numeric_limits<streamsize>::max(),'\n');
 			
-			cout << "invalid choice. try again, please enter a number between 1 and " << players.size()<< "." << endl;
+			cout << "Falsche Auswahl. Versuche es nochmal, Bitte gib eine Nummer zwischen 1 und " << players.size()<< "." << endl;
 			
 			
 		}

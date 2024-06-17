@@ -115,9 +115,9 @@ void playy(){
 	
 	//Rules
 	system("cls");
-	printf("you got 10 retrys. if you fail you lose. GO!\n");
-	printf("\n tip: \n - = bedeutet das der farbe an richtiger stelle ist");
-	printf("\n - ~ bedeutet das der farbe gibt, aber in falscher stelle.");
+	printf("Du hast 10 Versuche. Solltest du das nicht schaffen Verlierst du. GO!\n");
+	printf("\n tip: \n - = bedeutet das die Farbe an richtiger stelle ist");
+	printf("\n - ~ bedeutet das es die Farbe gibt, aber an falscher stelle.");
 	printf("\n use color codes for as answer (rgbp): ");
 	
 	grabfirstletterofarray(cols);
@@ -162,7 +162,7 @@ void playy(){
 		gameletters = "";
 		//optionen
 		int randtext = rand() % 5;
-		cout << "you lost your streak. your streak is: " << winstreak << endl;
+		cout << "Du hasst deine Streak Verloren. Deine Jetzige streak lautet: " << winstreak << endl;
 		cout << losstext[randtext] << endl;
 		cout << relquest;
 		char gameopt = getch();
@@ -178,8 +178,8 @@ void playy(){
 		}
 		else{
 			system("cls");
-			cout << "invalid...";
-			cout << "again";
+			cout << "Falsch...";
+			cout << "Nochmalch";
 			gameopt = 0;
 			gameopt = getch();
 			
@@ -195,7 +195,7 @@ void playy(){
 		gameletters = "";
 		int randtext = rand() % 5;
 		cout << wintext[randtext] << endl;
-		cout << "your streak is : " << winstreak << endl;
+		cout << "Deine Streak lautet : " << winstreak << endl;
 		cout << relquest;
 			char gameopt = getch();
 		bool selected;
@@ -213,7 +213,7 @@ void playy(){
 			cout << "save game?";
 			char savereq = getch();
 			if(savereq == 'y' ||savereq == '1'){
-				cout << "\n enter your name: ";
+				cout << "\n gib dein nutzername ein: ";
 				string nametemp;
 				cin >> nametemp;
 				player player = {nametemp,winstreak};
@@ -229,8 +229,8 @@ void playy(){
 		}
 		else{
 			system("cls");
-			cout << "invalid...";
-			cout << "again";
+			cout << "Falsch...";
+			cout << "Versuchs nochmal";
 			gameopt = 0;
 			gameopt = getch();
 			

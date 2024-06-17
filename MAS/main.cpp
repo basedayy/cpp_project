@@ -27,14 +27,14 @@ string filename = "save_game.txt";
 
 void loadgame(){
 	system("cls");
-	printf("loading....");
+	printf("Laden....");
 	vector<struct player> players = loadallpls(filename);
 	
 		if(!players.empty()){
 					
 				struct player seledpl =  selpl(players);
 					
-				cout << "you selected: " << seledpl.name <<"\n with winstreak of " << seledpl.playerwinstreak << endl;
+				cout << "Du hast ausgeweahlt: " << seledpl.name <<"\n with winstreak of " << seledpl.playerwinstreak << endl;
 				getch();
 				
 				player.playerwinstreak = seledpl.playerwinstreak;
@@ -42,7 +42,7 @@ void loadgame(){
 				winstreak = seledpl.playerwinstreak;
 			}
 			 else{
-				cout << "no players found.." << endl;
+				cout << "Kein Spieler Gefunden.." << endl;
 				
 				
 			}
@@ -59,14 +59,14 @@ void men(){
 		//string print way dont forget
 		printf(Title.c_str());
 		printf("\n \n \n");
-		printf("\t 1 - p - play\n \n");
-		printf("\t 2 - o - options\n \n ");
-		printf("\t 3 - l - Loaddd Game\n \n");
+		printf("\t 1 - p - Spielen\n \n");
+		printf("\t 2 - o - Einstellungen\n \n ");
+		printf("\t 3 - l - Spielstand laden\n \n");
 		printf("\t 4 - c - credits\n \n");
-		printf("\t 5 - q - quit\n \n");
+		printf("\t 5 - q - Verlassen\n \n");
 		
 		if (player.name.empty()){
-			cout << "player not registered." << endl;
+			cout << "Spieler nicht gefunden." << endl;
 		} else{
 			cout << endl << endl << "Name: " << player.name;
 			cout << endl << "winstreak: " << player.playerwinstreak;	
@@ -80,7 +80,7 @@ void men(){
 		{
 			case '1':
 			case 'p':
-				printf("going in game \n ");
+				printf("Spiel ist am Laden \n ");
 				playy();
 				
 				bpicked = true;
@@ -105,13 +105,13 @@ void men(){
 			break;
 			case '5':
 			case 'q':
-				printf("exiting...");
+				printf("Verlassen...");
 				exit(1);
 				bpicked = true;
 			break;
 			
 			default:
-				printf("invalid... try again.");
+				printf("Falsch... Versuchs nochmal.");
 			 	
 			 	
 			 	break;
