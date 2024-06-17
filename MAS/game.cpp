@@ -196,6 +196,7 @@ void playy(){
 		int randtext = rand() % 5;
 		cout << wintext[randtext] << endl;
 		cout << "your streak is : " << winstreak << endl;
+		cout << relquest;
 			char gameopt = getch();
 		bool selected;
 	

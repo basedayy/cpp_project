@@ -1,4 +1,7 @@
-#include <vector>
+//ayhamAQ
+//save func
+
+#include <vector> //vector ist eine dynamischer array
 #include <fstream> //file stream (datei ändern)
 #include <iostream>
 #include <string>
