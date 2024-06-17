@@ -28,7 +28,7 @@ void savegame(const player playerr,const string filename){
  
  
  //spieler auflisten von einer datei
- vector<player> loadallpls(const string filename){
+ vector<player> loadallpls(string filename){
  	vector<player> players;
  	ifstream file(filename.c_str());
  	
@@ -56,7 +56,7 @@ void savegame(const player playerr,const string filename){
  }
  
  //select players func
- player selpl(vector<player>& players){
+ player selpl(vector<player> players){
  	cout << "the players: " << endl;
  	
  	//durch alle spieler wiedeholen (scan players)
@@ -66,22 +66,23 @@ void savegame(const player playerr,const string filename){
 	}
 	
 	
-	char playerselopt;
+	int playerselopt;
 	bool plselected = false;
 	//solange keinspieler würde genomen
 	while(!plselected) {
 		
 		cout << "choose the player you want!" << endl;
 		
-		playerselopt = getch();
+		scanf("%i", &playerselopt);
 		
 		if(cin.fail() || playerselopt < 1 || static_cast<size_t> (playerselopt) > players.size()){
-			cin.clear();
+			/**cin.clear();
 			//ignoriert alle die über der spielerzahl oder unter 1 oder wenn es eine buchstabe wäre.
 			
 			cin.ignore(numeric_limits<streamsize>::max(),'\n');
-			
+			**/
 			cout << "invalid choice. try again";
+			
 		}
 		else {
 			break;

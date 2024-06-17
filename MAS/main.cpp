@@ -19,11 +19,27 @@ string Title = "\n \n \n \21 Welcome to mastermind";
 char ioption;
 int winstreak = 0;
 struct player player; 
-
+extern int playerselopt;
 string filename = "save_game.txt";
 
 
 
+
+void loadgame(){
+	system("cls");
+	printf("loading....");
+	vector<struct player> players = loadallpls(filename);
+	
+		if(!players.empty()){
+					
+				struct player seledpl =  selpl(players);
+					
+				cout << "you selected: " << seledpl.name <<"\n with winstreak of" << seledpl.playerwinstreak << endl;
+			}
+			 else{
+				cout << "no players found.." << endl;
+			}
+}
 
 
 void men(){
@@ -51,10 +67,7 @@ void men(){
 		
 	
 		ioption = getch();
-	
-	 
-		
-    
+
 		//ioption = 0;
 		switch(ioption)
 		{
@@ -74,12 +87,9 @@ void men(){
 			case 'l':
 				//LOAD GAME. fucking hell after 7 hours of coding straight i realized. kms
 				
-				system("cls");
-				printf("loading....");
-			//	vector<player> players = loadallpls(savefile);
+				loadgame();
 				
-				
-			break;
+				break;
 			
 			case '4':
 			case 'c':
@@ -104,15 +114,6 @@ void men(){
 	}
 		
 }
-			
-	
-	
-	
-	
-	
-
-
-
 
 int main(int argc, char** argv) {
 	system("color a");
