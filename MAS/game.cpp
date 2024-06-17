@@ -160,7 +160,9 @@ void playy(){
 		gameletters = "";
 		//optionen
 		int randtext = rand() % 5;
+		cout << "you lost your streak. your streak is: " << winstreak << endl;
 		cout << losstext[randtext] << endl;
+		cout << relquest;
 		char gameopt = getch();
 		bool selected;
 	
@@ -186,9 +188,12 @@ void playy(){
 	} else if (win) {
 		
 		winstreak = winstreak + 1;
+		
+		
 		gameletters = "";
 		int randtext = rand() % 5;
 		cout << wintext[randtext] << endl;
+		cout << "your streak is : " << winstreak << endl;
 			char gameopt = getch();
 		bool selected;
 	

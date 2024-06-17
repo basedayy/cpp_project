@@ -3,6 +3,8 @@
 #include <iomanip> //library für cmd ändern
 #include "game.h"
 #include <conio.h>
+#include <fstream>
+#include "saveload.h"
 
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
@@ -15,6 +17,11 @@ int length= 3;
 string Title = "\n \n \n \21 Welcome to mastermind";
 char ioption;
 int winstreak = 0;
+struct player player; 
+
+string savefile = "save_game.txt";
+
+
 
 
 
@@ -33,7 +40,14 @@ void men(){
 		printf("\t 3 - l - Loaddd Game\n \n");
 		printf("\t 4 - c - credits\n \n");
 		printf("\t 5 - q - quit\n \n");
-	
+		
+		if (player.name.empty()){
+			cout << "player not registered." << endl;
+		} else{
+			cout << endl << endl << "Name: " << player.name;
+			cout << endl << "winstreak: " << player.playerwinstreak;	
+		}
+		
 	
 		ioption = getch();
 	
