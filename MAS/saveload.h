@@ -9,7 +9,7 @@ struct player{
 
 void savegame(const player playerr,const string filename);
 
-vector<player> loadallgames(const string filename);
+vector<player> loadallpls(const string filename);
 
 
-player selectplayer(const vector<player> players);
+player selpl(const vector<player>& players);

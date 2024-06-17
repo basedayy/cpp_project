@@ -6,6 +6,7 @@
 #include <iterator>
 #include <vector>
 #include <conio.h>
+#include "saveload.h"
 
 using namespace std;
 
@@ -23,6 +24,7 @@ string losstext[] = {"you lost, what a shame... \n try again?", "you lost. try a
 string wintext[] = {"nice one, again?", "well done, again?", "nicely done, wanna play again", "you seem to be up for a challenge. again?", "hell yeah!, thats what im talking about. again"};
 string relquest = "y or 1 for yes, n or 2 for no";
 
+extern string filename;
 
 //randomize
 //mit der fisher-yates algorithmus kann ich die strings mischen. mit der srand time 0 kann ich real-time seed als generator nutzen
@@ -207,7 +209,20 @@ void playy(){
 		}
 		else if(gameopt == '2'||gameopt == 'n'){
 			win = false;
-			men();
+			cout << "save game?";
+			char savereq = getch();
+			if(savereq == 'y' ||savereq == '1'){
+				cout << "\n enter your name: ";
+				string nametemp;
+				cin >> nametemp;
+				player player = {nametemp,winstreak};
+				
+				savegame(player,filename);
+				men();
+			} else if(savereq == 'n'||savereq == '2'){
+				men();
+			}
+			
 			selected = true;
 			
 		}

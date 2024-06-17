@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <fstream>
 #include "saveload.h"
+#include <vector>
 
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
@@ -19,7 +20,7 @@ char ioption;
 int winstreak = 0;
 struct player player; 
 
-string savefile = "save_game.txt";
+string filename = "save_game.txt";
 
 
 
@@ -72,7 +73,12 @@ void men(){
 			case '3':
 			case 'l':
 				//LOAD GAME. fucking hell after 7 hours of coding straight i realized. kms
+				
+				system("cls");
 				printf("loading....");
+			//	vector<player> players = loadallpls(savefile);
+				
+				
 			break;
 			
 			case '4':
