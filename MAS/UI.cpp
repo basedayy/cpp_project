@@ -6,7 +6,7 @@
 
 
 using namespace std;
-int ioption;
+extern char ioption;
 extern int length;
 extern int max_tries;
 

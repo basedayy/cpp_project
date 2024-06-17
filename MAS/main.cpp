@@ -9,11 +9,12 @@
 
 using namespace std; 
 
-string cols[] = {"g - green","r - red","w - white","y - yellow","p - pink"};
+string cols[] = {"g - green","r - red","w - white","y - yellow","p - pink","m - magneta"};
 int max_tries= 10;
 int length= 3;
 string Title = "\n \n \n \21 Welcome to mastermind";
-extern int ioption;
+char ioption;
+int winstreak = 0;
 
 
 
@@ -27,41 +28,46 @@ void men(){
 		//string print way dont forget
 		printf(Title.c_str());
 		printf("\n \n \n");
-		printf("\t 1 - play\n \n");
-		printf("\t 2 - options\n \n ");
-		printf("\t 3 - Load Game\n \n");
-		printf("\t 4 - credits\n \n");
-		printf("\t 5 - quit\n \n");
+		printf("\t 1 - p - play\n \n");
+		printf("\t 2 - o - options\n \n ");
+		printf("\t 3 - l - Loaddd Game\n \n");
+		printf("\t 4 - c - credits\n \n");
+		printf("\t 5 - q - quit\n \n");
 	
 	
-		scanf("%i",&ioption);
+		ioption = getch();
 	
-	
+	 
 		
     
 		//ioption = 0;
 		switch(ioption)
 		{
-			case 1:
+			case '1':
+			case 'p':
 				printf("going in game \n ");
 				playy();
 				
 				bpicked = true;
 				break;
-			case 2:
+			case '2':
+			case 'o':
 				settingsmen();
 				bpicked = true;
 			break;
-			case 3:
+			case '3':
+			case 'l':
 				//LOAD GAME. fucking hell after 7 hours of coding straight i realized. kms
 				printf("loading....");
 			break;
 			
-			case 4:
+			case '4':
+			case 'c':
 				creds();
 				bpicked = true;
 			break;
-			case 5:
+			case '5':
+			case 'q':
 				printf("exiting...");
 				exit(1);
 				bpicked = true;

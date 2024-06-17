@@ -12,7 +12,8 @@ using namespace std;
 extern string cols[];
 extern int max_tries;
 extern int length;
-int arrlength = 5;
+extern int winstreak;
+int arrlength = 6;
 int randindex = 0;
 string playerguess;
 int gameopt;
@@ -20,7 +21,7 @@ string gameletters;
 bool win = false;
 string losstext[] = {"you lost, what a shame... \n try again?", "you lost. try again?", "whoops, tough luck...\n again?", "what a disappointment. again?","damn what a luck. again?", "are you a 5yo? or can you prove me wrong? \n try again?"};
 string wintext[] = {"nice one, again?", "well done, again?", "nicely done, wanna play again", "you seem to be up for a challenge. again?", "hell yeah!, thats what im talking about. again"};
-
+string relquest = "y or 1 for yes, n or 2 for no";
 
 
 //randomize
@@ -150,7 +151,11 @@ void playy(){
 	
 	//wenns verloren
 	if (!win){
+		
+	
+		
 		//reset
+		winstreak= 0;
 		cur_tries = max_tries;
 		gameletters = "";
 		//optionen
@@ -160,10 +165,10 @@ void playy(){
 		bool selected;
 	
 		while(gameopt != '1' ||gameopt!= '2'){
-			if (gameopt == '1'){
+			if (gameopt == '1'||gameopt == 'y'){
 			playy();
 		}
-		else if(gameopt == '2'){
+		else if(gameopt == '2'||gameopt == 'n'){
 			men();
 			
 		}
@@ -180,20 +185,22 @@ void playy(){
 	
 	} else if (win) {
 		
+		winstreak = winstreak + 1;
 		gameletters = "";
 		int randtext = rand() % 5;
 		cout << wintext[randtext] << endl;
 			char gameopt = getch();
 		bool selected;
 	
+		
 		while(gameopt != '1'|| gameopt != '2'){
-			if (gameopt == '1'){
+			if (gameopt == '1'||gameopt == 'y'){
 			win = false;
 			playy();
 			selected = true;
 			
 		}
-		else if(gameopt == '2'){
+		else if(gameopt == '2'||gameopt == 'n'){
 			win = false;
 			men();
 			selected = true;
