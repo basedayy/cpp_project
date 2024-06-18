@@ -22,7 +22,7 @@ string gameletters;
 bool win = false;
 string losstext[] = {"you lost, what a shame... \n try again?", "you lost. try again?", "whoops, tough luck...\n again?", "what a disappointment. again?","damn what a luck. again?", "are you a 5yo? or can you prove me wrong? \n try again?"};
 string wintext[] = {"nice one, again?", "well done, again?", "nicely done, wanna play again", "you seem to be up for a challenge. again?", "hell yeah!, thats what im talking about. again"};
-string relquest = "y or 1 for yes, n or 2 for no";
+string relquest = "y or 1 fuer ja, n or 2 fuer nein";
 
 extern string filename;
 
@@ -62,10 +62,10 @@ void grabfirstletterofarray(string colors[]){
 poss(){
 	if(playerguess == gameletters){
 		win = true;
-		printf("\n you WIN!");
+		printf("\n du Hast Gewonnen!");
 		
 		} else if (playerguess != gameletters){
-			printf("\n false\n");
+			printf("\n Falsch\n");
 		}
 		
 		vector<bool> matched(playerguess.size(), false);
@@ -115,7 +115,7 @@ void playy(){
 	
 	//Rules
 	system("cls");
-	printf("Du hast 10 Versuche. Solltest du das nicht schaffen Verlierst du. GO!\n");
+	printf("Du hast 10 Versuche. Solltest du das nicht schaffen Verlierst du. LOS!\n");
 	printf("\n tip: \n - = bedeutet das die Farbe an richtiger stelle ist");
 	printf("\n - ~ bedeutet das es die Farbe gibt, aber an falscher stelle.");
 	printf("\n use color codes for as answer (rgbp): ");
@@ -144,7 +144,7 @@ void playy(){
 			break;
 		}
 		
-		cout << cur_tries << " left." << endl;	
+		cout << cur_tries << " versuche verbleibend." << endl;	
 		cur_tries--;
 		
 	}
@@ -163,8 +163,8 @@ void playy(){
 		//optionen
 		int randtext = rand() % 5;
 		cout << "Du hasst deine Streak Verloren. Deine Jetzige streak lautet: " << winstreak << endl;
-		cout << losstext[randtext] << endl;
-		cout << relquest;
+		cout << endl <<losstext[randtext] << endl;
+		cout << endl <<relquest << endl;
 		char gameopt = getch();
 		bool selected;
 	
@@ -210,7 +210,8 @@ void playy(){
 		}
 		else if(gameopt == '2'||gameopt == 'n'){
 			win = false;
-			cout << "save game?";
+			cout << endl << "Spiel speichern?" << endl;
+			cout << relquest;
 			char savereq = getch();
 			if(savereq == 'y' ||savereq == '1'){
 				cout << "\n gib dein nutzername ein: ";

@@ -60,10 +60,10 @@ void men(){
 		printf(Title.c_str());
 		printf("\n \n \n");
 		printf("\t 1 - p - Spielen\n \n");
-		printf("\t 2 - o - Einstellungen\n \n ");
+		printf("\t 2 - e - Einstellungen\n \n ");
 		printf("\t 3 - l - Spielstand laden\n \n");
 		printf("\t 4 - c - credits\n \n");
-		printf("\t 5 - q - Verlassen\n \n");
+		printf("\t 5 - v - Verlassen\n \n");
 		
 		if (player.name.empty()){
 			cout << "Spieler nicht gefunden." << endl;
@@ -86,7 +86,7 @@ void men(){
 				bpicked = true;
 				break;
 			case '2':
-			case 'o':
+			case 'e':
 				settingsmen();
 				bpicked = true;
 			break;
@@ -104,7 +104,7 @@ void men(){
 				bpicked = true;
 			break;
 			case '5':
-			case 'q':
+			case 'v':
 				printf("Verlassen...");
 				exit(1);
 				bpicked = true;
