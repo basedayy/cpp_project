@@ -8,6 +8,7 @@
 #include <conio.h>
 #include "saveload.h"
 
+
 using namespace std;
 
 extern string cols[];
@@ -24,18 +25,21 @@ string losstext[] = {"you lost, what a shame... \n try again?", "you lost. try a
 string wintext[] = {"nice one, again?", "well done, again?", "nicely done, wanna play again", "you seem to be up for a challenge. again?", "hell yeah!, thats what im talking about. again"};
 string relquest = "y or 1 fuer ja, n or 2 fuer nein";
 
+
 extern string filename;
 
 //randomize
 //mit der fisher-yates algorithmus kann ich die strings mischen. mit der srand time 0 kann ich real-time seed als generator nutzen
 void shuffle(string cols[],int length){
-	srand(time(0));
+	srand(time(0)); // seed einstellen für game
 	string temp;
+	
 	
 	for (int i=0; i < length; i++){
 		randindex = rand() % (i+1);
 		temp = cols[i];
 		cols[i]= cols[randindex];
+		
 		cols[randindex] = temp;
 	}
 	
@@ -45,7 +49,7 @@ void shuffle(string cols[],int length){
 
 
 
-
+// erste buchstabe von jeder farbe nehmen.
 void grabfirstletterofarray(string colors[]){
 	
 	for(int i = 0; i < length;i++){

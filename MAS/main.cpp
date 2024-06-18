@@ -6,6 +6,7 @@
 #include <fstream>
 #include "saveload.h"
 #include <vector>
+#include <windows.h>
 
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
@@ -50,6 +51,8 @@ void loadgame(){
 
 
 void men(){
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
 	
 	bool bpicked = false;
 	//looping menu
@@ -59,17 +62,26 @@ void men(){
 		//string print way dont forget
 		printf(Title.c_str());
 		printf("\n \n \n");
+		SetConsoleTextAttribute(hConsole, 2);
 		printf("\t 1 - p - Spielen\n \n");
+		SetConsoleTextAttribute(hConsole, 4);
 		printf("\t 2 - e - Einstellungen\n \n ");
+		SetConsoleTextAttribute(hConsole, 5);
 		printf("\t 3 - l - Spielstand laden\n \n");
+		SetConsoleTextAttribute(hConsole, 7);
 		printf("\t 4 - c - credits\n \n");
+		SetConsoleTextAttribute(hConsole, 3);
 		printf("\t 5 - v - Verlassen\n \n");
+		SetConsoleTextAttribute(hConsole, 15);
 		
 		if (player.name.empty()){
 			cout << "Spieler nicht gefunden." << endl;
 		} else{
+			SetConsoleTextAttribute(hConsole, 13);
 			cout << endl << endl << "Name: " << player.name;
-			cout << endl << "winstreak: " << player.playerwinstreak;	
+			SetConsoleTextAttribute(hConsole, 10);
+			cout << endl << "winstreak: " << player.playerwinstreak;
+			SetConsoleTextAttribute(hConsole, 15);	
 		}
 		
 	
