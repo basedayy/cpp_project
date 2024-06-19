@@ -15,7 +15,7 @@ using namespace std;
 string cols[] = {"g - green","r - red","w - white","y - yellow","p - pink","m - magneta"};
 int max_tries= 10;
 int length= 3;
-string Title = "\n \n \n \21 Welcome to mastermind";
+string Title = "\n \n \n \21 Wilkommen bei Mastermind";
 char ioption;
 int winstreak = 0;
 struct player player; 

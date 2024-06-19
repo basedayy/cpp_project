@@ -1,4 +1,6 @@
 //ayham AQ 
+//Jan Fribus
+//Vinzenz Schoch
 //UI code
 #include <iostream>
 #include <stdlib.h>
@@ -31,7 +33,7 @@ void settingsmen(){
 	system("cls");
 	printf("\n \n \n");
 	printf("\t 1 - set game color length\n \n");
-	printf("\t 2 - set max tries\n \n ");
+	printf("\t 2 - Maximale Versuche\n \n ");
 	printf("\t 3 - credits\n \n");
 	printf("\t 4 - back\n \n");
 	
@@ -55,7 +57,7 @@ void settingsmen(){
 				break;
 			case 2:
 			int temptries;
-				printf("enter the value for max tries: ");
+				printf("Gibt die Maximale an Versuchen ein: ");
 				scanf("%i", &temptries);
 				max_tries = temptries;
 				temptries = 0;
@@ -71,11 +73,11 @@ void settingsmen(){
 			//	bpicked = true;
 			break;
 			default:
-				printf("invalid... try again.");
+				printf("Falsch... Versuchs nochmal.");
 				system("cls");
 				printf("\n \n \n");
 				printf("\t 1 - set game color length\n \n");
-				printf("\t 2 - set max tries\n \n ");
+				printf("\t 2 - Max versuche eingebn\n \n ");
 				printf("\t 3 - credits\n \n");
 				printf("\t 4 - back\n \n");
 				
