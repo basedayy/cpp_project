@@ -77,7 +77,7 @@ poss(){
 	//erste schritt. filter alle richtige mit =
 	for (int i = 0; i < len; ++i){
 		if(gameletters[i] == playerguess[i]){
-			result[i] = ' + ';
+			result[i] = '+';
 			
 		}
 	}
@@ -115,10 +115,14 @@ void playy(){
 	
 	//Rules
 	system("cls");
-	printf("Du hast 10 Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n");
-	printf("\n tip: \n + bedeutet das die Farbe an richtiger stelle ist");
-	printf("\n - bedeutet das es die Farbe gibt, aber an falscher stelle.");
-	printf("\n use color codes for as answer (rgbp): ");
+	effect("Du hast 10 Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n"  
+	"\n tip: \n + bedeutet das die Farbe an richtiger stelle ist"
+	"\n - bedeutet das es die Farbe gibt, aber an falscher stelle."
+	"\n use color codes for as answer (rgbp): ", 300);
+	//printf("Du hast 10 Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n");
+	//printf("\n tip: \n + bedeutet das die Farbe an richtiger stelle ist");
+	//printf("\n - bedeutet das es die Farbe gibt, aber an falscher stelle.");
+	//printf("\n use color codes for as answer (rgbp): ");
 	
 	grabfirstletterofarray(cols);
 	
@@ -173,7 +177,7 @@ void playy(){
 			playy();
 		}
 		else if(gameopt == '2'||gameopt == 'n'){
-			men();
+			men(false);
 			
 		}
 		else{
@@ -219,9 +223,9 @@ void playy(){
 				player player = {nametemp,winstreak};
 				
 				savegame(player,filename);
-				men();
+				men(false);
 			} else if(savereq == 'n'||savereq == '2'){
-				men();
+				men(false);
 			}
 			
 			selected = true;

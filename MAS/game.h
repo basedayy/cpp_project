@@ -1,5 +1,5 @@
 
-void men();
+void men(bool firsttime);
 extern int max_tries;
 extern int length;
 

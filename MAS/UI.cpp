@@ -5,6 +5,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include "game.h"
+#include <windows.h>
+#include <conio.h>
 
 
 using namespace std;
@@ -15,16 +17,69 @@ extern int max_tries;
 //string Title = "\n \n \n \21 Welcome to mastermind";
 
 
+void stclr(int color) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
 
 
+void prntcrtxt(string text, int Ms = 400) {
+    int colors[] = {1, 2, 3, 4, 5, 6}; // Colors for Chroma effect
+    int colorIndex = 0;
 
+	//loop to color 
+    for (size_t i = 0; i < text.length(); ++i) {
+        stclr(colors[colorIndex]);
+        cout << text[i];
+        colorIndex = (colorIndex + 1) % 6;
+        // printing effect.
+        if (text[i] == '\n') {
+            Sleep(Ms); // Adds a small delay to create the effect (using Windows Sleep)
+        }
+    }
+    stclr(7); // Reset to default color
+}
+
+
+void effect(string text,int Ms){
+	for (size_t i = 0; i < text.length(); ++i) {
+        cout << text[i];
+        // printing effect.
+        if (text[i] == '\n') {
+            Sleep(Ms); // Adds a small delay to create the effect (using Windows Sleep)
+        }
+    }
+}
 
 void creds(){
+	bool notexited = true;
+	char exit; 
+	while (notexited){
+		
+		system("cls");
+		printf("\n \n \n \n \n \n this application was proudly done by:\n \n");
+		cout << "\t Ayham AQ - coding\n \n "<< endl;
+		printf("\t Jan Fribus - \n \n");
+		printf("\t Vinzenz schoch - \n \n");
+		Sleep(100);
+		printf("drucken sie eine beliebige taste...");
+		
+		exit = getch();
+		
+		if(exit){
+			men(false);
+			notexited = false;
+		}
+		
+		
+		
+	}
 	system("cls");
 	printf("\n \n \n \n \n \n this application was proudly done by:\n \n");
 	cout << "\t Ayham AQ - coding\n \n "<< endl;
 	printf("\t Jan Fribus - \n \n");
 	printf("\t Vinzenz schoch - \n \n");
+	
+	
 	
 }
 
@@ -32,10 +87,15 @@ void settingsmen(){
 	ioption = 0;
 	system("cls");
 	printf("\n \n \n");
+	stclr(2);
 	printf("\t 1 - set game color length\n \n");
+	stclr(3);
 	printf("\t 2 - Maximale Versuche\n \n ");
+	stclr(5);
 	printf("\t 3 - credits\n \n");
+	stclr(4);
 	printf("\t 4 - back\n \n");
+	stclr(15);
 	
 	
 	scanf("%i",&ioption);
@@ -68,7 +128,7 @@ void settingsmen(){
 			//	bpicked = true;
 			break;
 			case 4:
-				men();
+				men(false);
 				return;
 			//	bpicked = true;
 			break;

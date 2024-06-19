@@ -13,7 +13,7 @@ string cols[] = {"g - green","r - red","w - white","y - yellow","p - pink","m - 
 int max_tries = 10;
 int length = 3;
 
-std::string Title = "\n"
+string Title = "\n"
     " __       __                        __                                        __                  __ \n"
     "|  \\     /  \\                      |  \\                                      |  \\                |  \\\n"
     "| $$\\   /  $$  ______    _______  _| $$_     ______    ______   ______ ____   \\$$ _______    ____| $$\n"
@@ -49,23 +49,40 @@ void loadgame() {
     }
 }
 
-void men() {
+void men(bool firsttime) {
     bool bpicked = false;
+    bool prntonce = false;
+    prntonce = !firsttime;
     while (!bpicked) {
         system("cls");
-        cout << Title << endl;
+        if(!prntonce){
+        	
+        	prntcrtxt(Title, 400);
+        	prntonce = true;
+		} else {
+			prntcrtxt(Title,  0);
+		}
+        stclr(3);
         cout << "\n \n \n";
         cout << "\t 1 - p - Spielen\n \n";
+        stclr(10);
         cout << "\t 2 - o - Einstellungen\n \n ";
+        stclr(9);
         cout << "\t 3 - l - Spielstand laden\n \n";
+        stclr(7);
         cout << "\t 4 - c - credits\n \n";
+        stclr(4);
         cout << "\t 5 - q - Verlassen\n \n";
+        stclr(15);
 
         if (player.name.empty()) {
             cout << "Spieler nicht gefunden." << endl;
         } else {
+        	stclr(4);
             cout << endl << endl << "Name: " << player.name;
-            cout << endl << "winstreak: " << player.playerwinstreak; 
+            stclr(4);
+            cout << endl << "winstreak: " << player.playerwinstreak;
+			stclr(15); 
         }
 
         ioption = getch();
@@ -106,8 +123,8 @@ void men() {
 
 int main(int argc, char** argv) {
     system("color a");
-    cout << Title << endl;
-    men();
+    
+    men(true);
     return 0;
 }
 
