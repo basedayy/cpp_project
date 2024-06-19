@@ -21,7 +21,7 @@ int gameopt;
 string gameletters;
 bool win = false;
 string losstext[] = {"Du hasst leider Verloren... \n try again?", "Du hasst Verloren, willst du es nochmal prbieren ?", "whoops, Das wars...\n Noch ein Versuch?", };
-string wintext[] = {"Gut gemacht, Noch mal?", "Gute Arbeit, Noch ein Versuch?", "Gute arbeit, willst du es noch einmal versuchen?", " };
+string wintext[] = {"Gut gemacht, Noch mal?", "Gute Arbeit, Noch ein Versuch?", "Gute arbeit, willst du es noch einmal versuchen?",};
 string relquest = "y or 1 for yes, n or 2 for no";
 
 extern string filename;
@@ -77,7 +77,7 @@ poss(){
 	//erste schritt. filter alle richtige mit =
 	for (int i = 0; i < len; ++i){
 		if(gameletters[i] == playerguess[i]){
-			result[i] = '=';
+			result[i] = ' + ';
 			
 		}
 	}
@@ -91,7 +91,7 @@ poss(){
 			for(int c = 0; c < len; ++c){
 				//wenn irgendwelche charactere von spieler passen für des rechner
 				if (!matched[c]&&gameletters[i]==playerguess[c]){
-					result[c] = '~';
+					result[c] = '-';
 					matched[c]= true;
 					break;
 				}
@@ -116,8 +116,8 @@ void playy(){
 	//Rules
 	system("cls");
 	printf("Du hast 10 Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n");
-	printf("\n tip: \n - = bedeutet das die Farbe an richtiger stelle ist");
-	printf("\n - ~ bedeutet das es die Farbe gibt, aber an falscher stelle.");
+	printf("\n tip: \n + bedeutet das die Farbe an richtiger stelle ist");
+	printf("\n - bedeutet das es die Farbe gibt, aber an falscher stelle.");
 	printf("\n use color codes for as answer (rgbp): ");
 	
 	grabfirstletterofarray(cols);
