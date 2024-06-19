@@ -20,8 +20,8 @@ string playerguess;
 int gameopt;
 string gameletters;
 bool win = false;
-string losstext[] = {"you lost, what a shame... \n try again?", "you lost. try again?", "whoops, tough luck...\n again?", "what a disappointment. again?","damn what a luck. again?", "are you a 5yo? or can you prove me wrong? \n try again?"};
-string wintext[] = {"nice one, again?", "well done, again?", "nicely done, wanna play again", "you seem to be up for a challenge. again?", "hell yeah!, thats what im talking about. again"};
+string losstext[] = {"Du hasst leider Verloren... \n try again?", "Du hasst Verloren, willst du es nochmal prbieren ?", "whoops, Das wars...\n Noch ein Versuch?", };
+string wintext[] = {"Gut gemacht, Noch mal?", "Gute Arbeit, Noch ein Versuch?", "Gute arbeit, willst du es noch einmal versuchen?", " };
 string relquest = "y or 1 for yes, n or 2 for no";
 
 extern string filename;
@@ -62,7 +62,7 @@ void grabfirstletterofarray(string colors[]){
 poss(){
 	if(playerguess == gameletters){
 		win = true;
-		printf("\n you WIN!");
+		printf("\n Du hasst Gewonnen!");
 		
 		} else if (playerguess != gameletters){
 			printf("\n false\n");
@@ -115,7 +115,7 @@ void playy(){
 	
 	//Rules
 	system("cls");
-	printf("Du hast 10 Versuche. Solltest du das nicht schaffen Verlierst du. GO!\n");
+	printf("Du hast 10 Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n");
 	printf("\n tip: \n - = bedeutet das die Farbe an richtiger stelle ist");
 	printf("\n - ~ bedeutet das es die Farbe gibt, aber an falscher stelle.");
 	printf("\n use color codes for as answer (rgbp): ");
@@ -210,7 +210,7 @@ void playy(){
 		}
 		else if(gameopt == '2'||gameopt == 'n'){
 			win = false;
-			cout << "save game?";
+			cout << "Spiel Speichern??";
 			char savereq = getch();
 			if(savereq == 'y' ||savereq == '1'){
 				cout << "\n gib dein nutzername ein: ";
