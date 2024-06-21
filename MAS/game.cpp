@@ -215,26 +215,56 @@ void playy(){
 		else if(gameopt == '2'||gameopt == 'n'){
 			win = false;
 			cout << "Spiel Speichern??";
-			char savereq = getch();
-			if(savereq == 'y' ||savereq == '1'){
-				cout << "\n gib dein nutzername ein: ";
+			
+			bool save = false;
+			
+			while (!save){
+				char savereq = getch();
+				
+				switch(savereq)
+				{
+				case 'y':
+				case '1':
+				{
+						cout << "\n gib dein nutzername ein: ";
 				string nametemp;
 				cin >> nametemp;
 				player player = {nametemp,winstreak};
 				
 				savegame(player,filename);
+				save = true;
 				men(false);
-			} else if(savereq == 'n'||savereq == '2'){
-				men(false);
+				break;
+			}
+				case 'n': case '2':
+					{
+						men(false);
+					save = true;
+					break;
+					}
+					
+				default:
+				   {
+				   	save = false;
+				   	
+				break;
+				   	
+				   }
+				
+				
 			}
 			
 			selected = true;
+				
+			}
+			
 			
 		}
 		else{
 			system("cls");
 			cout << "Falsch...";
-			cout << "Versuchs nochmal";
+			cout << "Versuchs nochmal\n";
+			cout << relquest;
 			gameopt = 0;
 			gameopt = getch();
 			
