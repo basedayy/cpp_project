@@ -23,7 +23,7 @@ string gameletters;
 string currentgameletters;
 bool win = false;
 bool pause = false;
-string losstext[] = {"Du hasst leider Verloren... \n try again?", "Du hasst Verloren, willst du es nochmal prbieren ?", "whoops, Das wars...\n Noch ein Versuch?", };
+string losstext[] = {"Du hasst leider Verloren... \n try again?", "Du hasst Verloren, willst du es nochmal prbieren ?", "whoops, Das wars...\n Noch ein Versuch?"};
 string wintext[] = {"Gut gemacht, Noch mal?", "Gute Arbeit, Noch ein Versuch?", "Gute arbeit, willst du es noch einmal versuchen?"};
 string relquest = "y or 1 for yes, n or 2 for no";
 
@@ -208,7 +208,7 @@ void playy(bool newg,bool loadgletters){
 		gameletters = "";
 		currentgameletters = "";
 		//optionen
-		int randtext = rand() % 5;
+		int randtext = rand() % 3; //same size as the array of the losstext
 		cout << "Du hasst deine Streak Verloren. Deine Jetzige streak lautet: " << winstreak << endl;
 		cout << losstext[randtext] << endl;
 		cout << relquest;
@@ -241,7 +241,7 @@ void playy(bool newg,bool loadgletters){
 		
 		gameletters = "";
 		currentgameletters = "";
-		int randtext = rand() % 3;
+		int randtext = rand() % 3;//same size as the array of the wintext
 		cout << wintext[randtext] << endl;
 		cout << "Deine Streak lautet : " << winstreak << endl;
 		cout << relquest;
