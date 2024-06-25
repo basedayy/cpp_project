@@ -18,10 +18,13 @@ int arrlength = 6;
 int randindex = 0;
 string playerguess;
 int gameopt;
+int cur_tries = 10;
 string gameletters;
+string currentgameletters;
 bool win = false;
+bool pause = false;
 string losstext[] = {"Du hasst leider Verloren... \n try again?", "Du hasst Verloren, willst du es nochmal prbieren ?", "whoops, Das wars...\n Noch ein Versuch?", };
-string wintext[] = {"Gut gemacht, Noch mal?", "Gute Arbeit, Noch ein Versuch?", "Gute arbeit, willst du es noch einmal versuchen?",};
+string wintext[] = {"Gut gemacht, Noch mal?", "Gute Arbeit, Noch ein Versuch?", "Gute arbeit, willst du es noch einmal versuchen?"};
 string relquest = "y or 1 for yes, n or 2 for no";
 
 extern string filename;
@@ -59,25 +62,30 @@ void grabfirstletterofarray(string colors[]){
 
 }
 
-poss(){
-	if(playerguess == gameletters){
+void poss(){
+	
+	if(playerguess == currentgameletters){
 		win = true;
 		printf("\n Du hasst Gewonnen!");
 		
-		} else if (playerguess != gameletters){
+		} else if (playerguess != currentgameletters){
 			printf("\n false\n");
 		}
 		
 		vector<bool> matched(playerguess.size(), false);
 		//länge von der wort holen ( also wie viele buchstaben.)
-	int len = min(gameletters.size(),playerguess.size());
+	int len = min(currentgameletters.size(),playerguess.size());
 	//neue string für die results (alles falsch wird nicht markiert)
 	string result(len, ' ');
 	
 	//erste schritt. filter alle richtige mit =
 	for (int i = 0; i < len; ++i){
-		if(gameletters[i] == playerguess[i]){
+		if(currentgameletters[i] == playerguess[i]){
 			result[i] = '+';
+			
+		} else if (playerguess[i] == '.'){
+			cout << ". IS DETECTED \n";
+			pause = true;
 			
 		}
 	}
@@ -90,7 +98,7 @@ poss(){
 			
 			for(int c = 0; c < len; ++c){
 				//wenn irgendwelche charactere von spieler passen für des rechner
-				if (!matched[c]&&gameletters[i]==playerguess[c]){
+				if (!matched[c]&&currentgameletters[i]==playerguess[c]){
 					result[c] = '-';
 					matched[c]= true;
 					break;
@@ -105,30 +113,60 @@ poss(){
 }
 
 
-void playy(){
+void playy(bool newg,bool loadgletters){
 	
+	string availablecols;
 	
-	shuffle(cols,arrlength);
-	//gleiche wie maximal, änderbar in main
-	int cur_tries = max_tries;
-	
+	player pl;
 	
 	//Rules
 	system("cls");
+	
+	
+	if(newg){
+		
+		shuffle(cols,arrlength);
+	//gleiche wie maximal, änderbar in main
+	
+	
 	effect("Du hast 10 Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n"  
 	"\n tip: \n + bedeutet das die Farbe an richtiger stelle ist"
 	"\n - bedeutet das es die Farbe gibt, aber an falscher stelle."
 	"\n use color codes for as answer (rgbp): ", 300);
-	//printf("Du hast 10 Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n");
-	//printf("\n tip: \n + bedeutet das die Farbe an richtiger stelle ist");
-	//printf("\n - bedeutet das es die Farbe gibt, aber an falscher stelle.");
-	//printf("\n use color codes for as answer (rgbp): ");
 	
 	grabfirstletterofarray(cols);
 	
-	printf("\n");
+	//cout << availablecols;
 	
-	cout << gameletters;
+	printf("\n");
+	cout << currentgameletters;
+	
+	
+	}else{
+	printf("Du hast 10 Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n");
+	printf("\n tip: \n + bedeutet das die Farbe an richtiger stelle ist");
+	printf("\n - bedeutet das es die Farbe gibt, aber an falscher stelle.");
+	printf("\n use color codes for as answer (rgbp): ");
+	grabfirstletterofarray(cols);
+	
+	
+	printf("\n");
+
+	//cout << availablecols;
+	//cout << currentgameletters;
+	}
+	
+	if(currentgameletters.empty()){
+		
+		
+		currentgameletters = gameletters;
+	} 
+	cout << currentgameletters;
+	
+	
+	
+	
+	
 	//solange es ist nicht 0
 	while(cur_tries != 0){
 		char tmp[length];
@@ -137,15 +175,19 @@ void playy(){
 	
 		//printf(playerguess.c_str());
 		
-		gameletters.c_str();
+		currentgameletters.c_str();
 		
-		
+	
 		
 	
 		poss();
 		
-			if(win){
+		if(win){
 			break;
+		}
+		
+		if(pause){
+			pausemen();
 		}
 		
 		cout << cur_tries << " left." << endl;	
@@ -164,6 +206,7 @@ void playy(){
 		winstreak= 0;
 		cur_tries = max_tries;
 		gameletters = "";
+		currentgameletters = "";
 		//optionen
 		int randtext = rand() % 5;
 		cout << "Du hasst deine Streak Verloren. Deine Jetzige streak lautet: " << winstreak << endl;
@@ -174,7 +217,7 @@ void playy(){
 	
 		while(gameopt != '1' ||gameopt!= '2'){
 			if (gameopt == '1'||gameopt == 'y'){
-			playy();
+			playy(true,false);
 		}
 		else if(gameopt == '2'||gameopt == 'n'){
 			men(false);
@@ -197,7 +240,8 @@ void playy(){
 		
 		
 		gameletters = "";
-		int randtext = rand() % 5;
+		currentgameletters = "";
+		int randtext = rand() % 3;
 		cout << wintext[randtext] << endl;
 		cout << "Deine Streak lautet : " << winstreak << endl;
 		cout << relquest;
@@ -208,12 +252,13 @@ void playy(){
 		while(gameopt != '1'|| gameopt != '2'){
 			if (gameopt == '1'||gameopt == 'y'){
 			win = false;
-			playy();
+			playy(true,false);
 			selected = true;
 			
 		}
 		else if(gameopt == '2'||gameopt == 'n'){
 			win = false;
+			currentgameletters = "";
 			cout << "Spiel Speichern??";
 			
 			bool save = false;
@@ -229,10 +274,11 @@ void playy(){
 						cout << "\n gib dein nutzername ein: ";
 				string nametemp;
 				cin >> nametemp;
-				player player = {nametemp,winstreak};
+				player player = {nametemp,winstreak,cur_tries};
 				
-				savegame(player,filename);
+				savegame(player,filename,false,cur_tries,currentgameletters);
 				save = true;
+				winstreak = 0;
 				men(false);
 				break;
 			}

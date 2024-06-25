@@ -7,14 +7,83 @@
 #include "game.h"
 #include <windows.h>
 #include <conio.h>
+#include "UI.h"
+#include "saveload.h"
 
 
 using namespace std;
 extern char ioption;
 extern int length;
 extern int max_tries;
-
+extern bool pause;
+extern string filename;
+extern int cur_tries;
+extern int winstreak;
+extern string currentgameletters;
 //string Title = "\n \n \n \21 Welcome to mastermind";
+
+
+void pausemen(){
+	
+	while(pause)
+	{
+		
+	int iopt;
+	string name;
+	system("cls");
+	printf("\n \n \n PAUSE MENU\n \n");
+	stclr(2);
+	printf("\t 1 - back to game\n \n");
+	stclr(3);
+	printf("\t 2 - speichern\n \n");
+	stclr(4);
+	printf("\t 3 - quit\n \n");
+	stclr(15);
+	
+	cin >> iopt;
+	
+		switch(iopt){
+			case 1: 
+			{
+				cur_tries = cur_tries + 1;	
+				pause = false;		
+				playy(false,false);
+				
+				break;
+			}
+			case 2:
+				{
+					cout << "please enter your name: ";
+				cin >> name;
+				player player = {name,winstreak,cur_tries};
+				
+				savegame(player,filename,true,cur_tries,currentgameletters);	
+				pause = false;	
+				men(false);		
+				break;
+				}
+				
+			case 3:
+				{
+				men(false);
+				pause = false;	
+				break;
+				}
+
+			default:
+				cout << "invalid... try again";
+			
+			
+			
+			
+			
+		}
+	
+		
+		
+	}
+	
+}
 
 
 void stclr(int color) {
@@ -144,7 +213,10 @@ void settingsmen(){
 			 	
 			
 			}
-		}
+}
+
+
+
 	
 			
 		

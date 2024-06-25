@@ -10,16 +10,20 @@
 #include <limits>
 
 
-
+using namespace std;
 extern string filename;
 
 
-void savegame(const player playerr,const string filename){
+
+void savegame(const player playerr,const string filename,bool ingame,int currtries, string cur_gameletters){
 	ofstream file(filename.c_str(),ios::app);
 	
 	if (file.is_open()){
 		file << playerr.name << endl;
 		file << playerr.playerwinstreak << endl;
+		file << ingame << endl;
+		file << currtries << endl;
+		file << cur_gameletters << endl;
 		
 		file.close();
 		cout << "Spiel gespeichert!" << endl;
@@ -40,11 +44,43 @@ void savegame(const player playerr,const string filename){
  	if(file.is_open()){
  		string name;
  		int winstreak;
+ 		bool ingame;
+ 		int currtries;
+ 		string currentgameletters;
+ 		
+ 		string winstreakstr,ingamestr,currtriesstr;
+ 		
  		
  		//jeden winstreak und name ziehen und aflisten auf command
- 		while(file >> name >> winstreak){
- 			players.push_back({name,winstreak});
+ 		
+ 		while(getline(file,name)) {
+ 			if(!getline(file,winstreakstr)) break;
+ 			if(!getline(file,ingamestr)) break;
+ 			if(!getline(file,currtriesstr)) break;
+ 			
+ 			getline(file,currentgameletters);
+ 			
+ 			
+ 			winstreak = stoi(winstreakstr);
+ 			ingame = stoi(ingamestr);
+ 			currtries = stoi(currtriesstr);
+ 			
+ 			players.push_back({name,winstreak,ingame,currtries,currentgameletters});
+ 			
+ 			
 		 }
+ 		/**while(file >> name >> winstreak >> ingame >> currtries){	
+ 			if (!currentgameletters.empty()){
+ 				players.push_back({name,winstreak,ingame,currtries,currentgameletters});
+			} else{
+				players.push_back({name,winstreak,ingame,currtries,"none"});
+			 
+			}
+			
+			 
+		 }
+		 
+		 **/
 		 file.close();
 		 
 		 cout << "Geladene Liste" << endl;

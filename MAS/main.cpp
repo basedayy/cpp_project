@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 #include "UI.h"
 #include <iomanip>
 #include "game.h"
@@ -6,12 +7,16 @@
 #include <fstream>
 #include "saveload.h"
 #include <vector>
+#include <windows.h>
 
+#pragma comment(lib,"winmm.lib")
 using namespace std;
 
 string cols[] = {"g - green","r - red","w - white","y - yellow","p - pink","m - magneta"};
 int max_tries = 10;
 int length = 3;
+int luckynum = 3;
+int roul;
 
 string Title = "\n"
     " __       __                        __                                        __                  __ \n"
@@ -28,6 +33,8 @@ string Title = "\n"
 char ioption;
 int winstreak = 0;
 struct player player; 
+extern int cur_tries;
+extern string currentgameletters;
 extern int playerselopt;
 string filename = "save_game.txt";
 
@@ -39,7 +46,15 @@ void loadgame() {
     if (!players.empty()) {
         struct player seledpl = selpl(players);
         cout << "Du hast ausgeweahlt: " << seledpl.name << "\n with winstreak of " << seledpl.playerwinstreak << endl;
+        
         getch();
+        if(seledpl.currtries != 10){
+        	cur_tries = seledpl.currtries;
+        	currentgameletters= seledpl.cur_gameletters;
+        	
+        	playy(true,true);
+		}
+        
 
         player.playerwinstreak = seledpl.playerwinstreak;
         player.name = seledpl.name;
@@ -50,6 +65,10 @@ void loadgame() {
 }
 
 void men(bool firsttime) {
+	srand(time(0));
+	roul = rand() % 10;
+	
+	bool play;
     bool bpicked = false;
     bool prntonce = false;
     prntonce = !firsttime;
@@ -59,6 +78,11 @@ void men(bool firsttime) {
         	
         	prntcrtxt(Title, 400);
         	prntonce = true;
+        	
+        	if(roul < 5){
+		PlaySound("test.wav",NULL,SND_FILENAME | SND_ASYNC);
+			play =true;
+		}
 		} else {
 			prntcrtxt(Title,  0);
 		}
@@ -75,6 +99,7 @@ void men(bool firsttime) {
         cout << "\t 5 - q - Verlassen\n \n";
         stclr(15);
 
+		
         if (player.name.empty()) {
             cout << "Spieler nicht gefunden." << endl;
         } else {
@@ -82,8 +107,12 @@ void men(bool firsttime) {
             cout << endl << endl << "Name: " << player.name;
             stclr(4);
             cout << endl << "winstreak: " << player.playerwinstreak;
+            cout << endl << "currtries: " << player.currtries;
 			stclr(15); 
         }
+        if (play){
+        	cout << "nice";
+		}
 
         ioption = getch();
 
@@ -91,7 +120,8 @@ void men(bool firsttime) {
             case '1':
             case 'p':
                 cout << "Spiel ist am Laden \n ";
-                playy();
+                PlaySound(NULL,NULL,0);
+                playy(true,false);
                 bpicked = true;
                 break;
             case '2':
