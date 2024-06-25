@@ -132,6 +132,7 @@ void men(bool firsttime) {
             case '3':
             case 'l':
                 loadgame();
+                PlaySound(NULL,NULL,0);
                 break;
             case '4':
             case 'c':
@@ -141,6 +142,7 @@ void men(bool firsttime) {
             case '5':
             case 'q':
                 cout << "Verlassen..." << endl;
+                PlaySound(NULL,NULL,0);
                 exit(1);
                 bpicked = true;
                 break;
