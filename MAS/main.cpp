@@ -11,7 +11,7 @@
 
 #pragma comment(lib,"winmm.lib")
 using namespace std;
-
+//variablen
 string cols[] = {"g - green","r - red","w - white","y - yellow","p - pink","m - magneta"};
 int max_tries = 10;
 int length = 3;
