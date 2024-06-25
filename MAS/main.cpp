@@ -88,18 +88,31 @@ void men(bool firsttime) {
 		}
         stclr(3);
         cout << "\n \n \n";
-        cout << "\t 1 - p - Spielen\n \n";
-        stclr(10);
-        cout << "\t 2 - o - Einstellungen\n \n ";
-        stclr(9);
-        cout << "\t 3 - l - Spielstand laden\n \n";
-        stclr(7);
-        cout << "\t 4 - c - credits\n \n";
-        stclr(4);
-        cout << "\t 5 - q - Verlassen\n \n";
+        
+        setw(70);
         stclr(15);
+        cout << setw(62) << "\t##########################\n";
+         cout << setw(62) <<"\t# 1 - p - Spielen        #\n";
+        cout << setw(62) <<"\t##########################\n\n";
+        stclr(10);
+         cout << setw(62) << "\t##########################\n";
+         cout << setw(62) << "\t# 2 - o - Einstellungen  #\n";
+         cout << setw(62) << "\t##########################\n\n";
+        stclr(9);
+         cout << setw(62) << "\t##########################\n";
+         cout << setw(62) << "\t#3 - l - Spielstand laden#\n";
+         cout << setw(62) << "\t##########################\n\n";
+        stclr(7);
+         cout << setw(62) << "\t##########################\n";
+         cout << setw(62) << "\t# 4 - c - credits        #\n";
+         cout << setw(62) << "\t##########################\n\n";
+        stclr(4);
+         cout << setw(62) << "\t##########################\n";
+         cout << setw(62) << "\t# 5 - q - Verlassen      #\n";
+         cout << setw(62) << "\t##########################\n\n";
+        stclr(15);
+       
 
-		
         if (player.name.empty()) {
             cout << "Spieler nicht gefunden." << endl;
         } else {
