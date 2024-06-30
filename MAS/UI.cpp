@@ -3,7 +3,7 @@
 //Vinzenz Schoch
 //UI code
 
-// WARNING: RELEASE VERSION. DONT MESS WITH IT. KONTAKTIER DEVS FÜR FRAGEN
+// WARNING: RELEASE VERSION. DONT MESS WITH IT. KONTAKTIER DEVS FÃœR FRAGEN
 #include <iostream>
 #include <stdlib.h>
 #include "game.h"
@@ -140,8 +140,9 @@ void creds(){
 		system("cls");
 		printf("\n \n \n \n \n \n this application was proudly done by:\n \n");
 		cout << "\t Ayham AQ - coding\n \n "<< endl;
-		printf("\t Jan Fribus - \n \n");
-		printf("\t Vinzenz schoch - \n \n");
+		printf("\t Jan Fribus - coding and design\n \n");
+		printf("\t Vinzenz schoch - Documentation\n \n");
+		printf("\t Nicht vergessen. wir alle haben gleich Zusammen gearbeitet\n \n");
 		Sleep(100);
 		printf("drucken sie eine beliebige taste...");
 		
