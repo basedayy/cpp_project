@@ -139,8 +139,9 @@ void playy(bool newg,bool loadgletters){
 	
 	string text = "Du hast " + to_string(cur_tries) + " Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n"  
 	"\n tip: \n + bedeutet das die Farbe an richtiger stelle ist"
-	"\n - bedeutet das es die Farbe gibt, aber an falscher stelle. und . for pausen menu"
-	"\n . es gibt " + to_string(length) +" stellen."
+	"\n - bedeutet das es die Farbe gibt, aber an falscher stelle."
+	"\n  und . fr pausen menu"
+	"\n es gibt " + to_string(length) +" stellen."
 	"\n use color codes for as answer (rgbpwm): ";
 	effect(text, 300);
 	
