@@ -63,7 +63,9 @@ void loadgame() {
         player.name = seledpl.name;
         winstreak = seledpl.playerwinstreak;
     } else {
-        cout << "Kein Spieler Gefunden.." << endl;
+        cout << endl << "Kein Spieler Gefunden.." << endl;
+        cout << "druecken sie bitte eine beliebige taste.." << endl;
+        getch();
     }
 }
 
@@ -141,22 +143,24 @@ void men(bool firsttime) {
             case 'p':
                 cout << "Spiel ist am Laden \n ";
                 sts();
-                pss("sounds/clicsfx.wav");
+                pss("sounds/clicksfx.wav");
                 playy(true,false);
                 bpicked = true;
                 break;
             case '2':
             case 'o':
+            	pss("sounds/clicksfx.wav");
                 settingsmen();
-                pss("sounds/clicksfx.wav");
+                
                 bpicked = true;
                 break;
             case '3':
             case 'l':
+            	sts();
+                pss("sounds/clicksfx.wav");
                 loadgame();
                 
-                sts();
-                pss("sounds/clicksfx.wav");
+                
                 break;
             case '4':
             case 'c':

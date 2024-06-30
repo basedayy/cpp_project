@@ -89,7 +89,7 @@ void savegame(const player playerr,const string filename,bool ingame,int currtri
  		
 	 }else{
 	 	
-	 	cerr << "Schlecht. hat nicht geladen" << endl;
+	 	cerr << endl << "Schlecht. hat nicht geladen" << endl;
 	 	
 	 	
 	 }

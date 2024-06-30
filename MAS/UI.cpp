@@ -192,17 +192,31 @@ void settingsmen(){
 		{
 			case '1':
 				int templen;
-				printf("enter the value for color length ");
+				printf("enter the value for color length from 1 to 6");
 				scanf("%i", &templen);
+				if (templen < 7 && templen > 0){
 				length = templen;
-				templen = 0;
-			//	settingsmen();
+				pss("sound/clicksfx.wav");
+				} else {
+					cout << "falsche eingabe";
+					option = 1;
+					pss("sounds/error.wav");
+				}
+				
+			
 				break;
 			case '2':
 			int temptries;
 				printf("Gibt die Maximale an Versuchen ein: ");
 				scanf("%i", &temptries);
-				max_tries = temptries;
+				if(temptries <1){
+					
+				}else {
+					max_tries = temptries;
+					pss("sounds/error.wav");
+				}
+				option = 1;
+				
 				temptries = 0;
 			//settingsmen();	
 			break;

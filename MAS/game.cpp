@@ -104,7 +104,7 @@ void poss(){
 			
 			for(int c = 0; c < len; ++c){
 				//wenn irgendwelche charactere von spieler passen für des rechner
-				if (!matched[c]&&currentgameletters[i] == playerguess[c]){
+				if (!matched[c]&&currentgameletters[c] == playerguess[i]){
 					result[i] = '-';
 					matched[c]= true;
 					break;
@@ -140,6 +140,7 @@ void playy(bool newg,bool loadgletters){
 	string text = "Du hast " + to_string(cur_tries) + " Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n"  
 	"\n tip: \n + bedeutet das die Farbe an richtiger stelle ist"
 	"\n - bedeutet das es die Farbe gibt, aber an falscher stelle. und . for pausen menu"
+	"\n . es gibt " + to_string(length) +" stellen."
 	"\n use color codes for as answer (RGBPWM): ";
 	effect(text, 300);
 	
@@ -156,6 +157,7 @@ void playy(bool newg,bool loadgletters){
 	printf("Du hast ", cur_tries ," Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n");
 	printf("\n tip: \n + bedeutet das die Farbe an richtiger stelle ist");
 	printf("\n - bedeutet das es die Farbe gibt, aber an falscher stelle. und . for pausen menu");
+	printf(". es gibt ",length," stellen");
 	printf("\n use color codes for as answer (RGBPWM): ");
 	grabfirstletterofarray(cols);
 	
@@ -173,7 +175,7 @@ void playy(bool newg,bool loadgletters){
 	} 
 
 	
-	//cout << currentgameletters;
+	cout << currentgameletters;
 	
 	
 	
@@ -228,6 +230,7 @@ void playy(bool newg,bool loadgletters){
 	
 		while(gameopt != '1' ||gameopt!= '2'){
 			if (gameopt == '1'||gameopt == 'y'){
+				cur_tries = max_tries;
 			playy(true,false);
 		}
 		else if(gameopt == '2'||gameopt == 'n'){
@@ -262,7 +265,9 @@ void playy(bool newg,bool loadgletters){
 		
 		while(gameopt != '1'|| gameopt != '2'){
 			if (gameopt == '1'||gameopt == 'y'){
+				
 			win = false;
+			cur_tries = max_tries;
 			playy(true,false);
 			selected = true;
 			
