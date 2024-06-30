@@ -29,7 +29,7 @@ string gameletters;
 string currentgameletters;
 bool win = false;
 bool pause = false;
-string losstext[] = {"Du hasst leider Verloren... \n try again?", "Du hasst Verloren, willst du es nochmal prbieren ?", "whoops, Das wars...\n Noch ein Versuch?"};
+string losstext[] = {"Du hast leider Verloren... \n try again?", "Du hast Verloren, willst du es nochmal prbieren ?", "whoops, Das wars...\n Noch ein Versuch?"};
 string wintext[] = {"Gut gemacht, Noch mal?", "Gute Arbeit, Noch ein Versuch?", "Gute arbeit, willst du es noch einmal versuchen?"};
 string relquest = "y or 1 for yes, n or 2 for no";
 
@@ -72,7 +72,7 @@ void poss(){
 	
 	if(playerguess == currentgameletters){
 		win = true;
-		printf("\n Du hasst Gewonnen!");
+		printf("\n Du hast Gewonnen!");
 		
 		} else if (playerguess != currentgameletters){
 			printf("\n false\n");
@@ -157,9 +157,10 @@ void playy(bool newg,bool loadgletters){
 	
 	printf("Du hast ", cur_tries ," Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n");
 	printf("\n tip: \n + bedeutet das die Farbe an richtiger stelle ist");
-	printf("\n - bedeutet das es die Farbe gibt, aber an falscher stelle. und . for pausen menu");
+	printf("\n - bedeutet das es die Farbe gibt, aber an falscher stelle.");
+	printf("\n  und . fuer pausen menu");
 	printf(". es gibt ",length," stellen");
-	printf("\n use color codes for as answer (RGBPWM): ");
+	printf("\n use color codes for as answer (rgbpwm): ");
 	grabfirstletterofarray(cols);
 	
 	
@@ -223,7 +224,7 @@ void playy(bool newg,bool loadgletters){
 		currentgameletters = "";
 		//optionen
 		int randtext = rand() % 3; //same size as the array of the losstext
-		cout << "Du hasst deine Streak Verloren. Deine Jetzige streak lautet: " << winstreak << endl;
+		cout << "Du hast deine Streak Verloren. Deine Jetzige streak lautet: " << winstreak << endl;
 		cout << losstext[randtext] << endl;
 		cout << relquest;
 		char gameopt = getch();
@@ -258,7 +259,7 @@ void playy(bool newg,bool loadgletters){
 		currentgameletters = "";
 		int randtext = rand() % 3;//same size as the array of the wintext
 		cout << wintext[randtext] << endl;
-		cout << "Deine Streak lautet : " << winstreak << endl;
+		cout << "Deine Streak lautet: " << winstreak << endl;
 		cout << relquest;
 			char gameopt = getch();
 		bool selected;
@@ -276,7 +277,7 @@ void playy(bool newg,bool loadgletters){
 		else if(gameopt == '2'||gameopt == 'n'){
 			win = false;
 			currentgameletters = "";
-			cout << "Spiel Speichern??";
+			cout << "\nSpiel Speichern??";
 			
 			bool save = false;
 			
@@ -288,7 +289,7 @@ void playy(bool newg,bool loadgletters){
 				case 'y':
 				case '1':
 				{
-						cout << "\n gib dein nutzername ein: ";
+						cout << "\ngib deinen Nutzernamen ein: ";
 				string nametemp;
 				cin >> nametemp;
 				player player = {nametemp,winstreak,cur_tries};
