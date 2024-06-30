@@ -1,3 +1,8 @@
+// AYHAM AQ, JAN FRIBUS, VINZ SCHOCH
+//MAIN CODE
+
+// WARNING: RELEASE VERSION. DONT MESS WITH IT. KONTAKTIER DEVS FÜR FRAGEN
+
 #include <iostream>
 #include <ctime>
 #include "UI.h"
@@ -7,9 +12,7 @@
 #include <fstream>
 #include "saveload.h"
 #include <vector>
-#include <windows.h>
 
-#pragma comment(lib,"winmm.lib")
 using namespace std;
 //variablen
 string cols[] = {"g - green","r - red","w - white","y - yellow","p - pink","m - magneta"};
@@ -79,12 +82,14 @@ void men(bool firsttime) {
         	prntcrtxt(Title, 400);
         	prntonce = true;
         	
-        	if(roul < 5){
-		PlaySound("test.wav",NULL,SND_FILENAME | SND_ASYNC);
+        	if(roul < 3){
+		pss("sounds/test.wav");
 			play =true;
 		}
+		
 		} else {
 			prntcrtxt(Title,  0);
+			
 		}
         stclr(3);
         cout << "\n \n \n";
@@ -123,9 +128,11 @@ void men(bool firsttime) {
             cout << endl << "currtries: " << player.currtries;
 			stclr(15); 
         }
-        if (play){
-        	cout << "nice";
-		}
+        
+		if (!play){
+			pss("sounds/menufort.wav");
+			
+		} 
 
         ioption = getch();
 
@@ -133,34 +140,42 @@ void men(bool firsttime) {
             case '1':
             case 'p':
                 cout << "Spiel ist am Laden \n ";
-                PlaySound(NULL,NULL,0);
+                sts();
+                pss("sounds/clicsfx.wav");
                 playy(true,false);
                 bpicked = true;
                 break;
             case '2':
             case 'o':
                 settingsmen();
+                pss("sounds/clicksfx.wav");
                 bpicked = true;
                 break;
             case '3':
             case 'l':
                 loadgame();
-                PlaySound(NULL,NULL,0);
+                
+                sts();
+                pss("sounds/clicksfx.wav");
                 break;
             case '4':
             case 'c':
+            	pss("sounds/clicksfx.wav");
                 creds();
+                
                 bpicked = true;
                 break;
             case '5':
             case 'q':
                 cout << "Verlassen..." << endl;
-                PlaySound(NULL,NULL,0);
+                sts();
+                pss("sounds/clicksfx.wav");
                 exit(1);
                 bpicked = true;
                 break;
             default:
                 cout << "Falsch... Versuchs nochmal." << endl;
+                pss("sounds/error.wav");
                 break;
         }
     }

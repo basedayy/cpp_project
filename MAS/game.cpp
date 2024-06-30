@@ -1,3 +1,8 @@
+//AYHAM AQ, JAN FB, VINZ SCHOCH
+//GAME CODE
+
+// WARNING: RELEASE VERSION. DONT MESS WITH IT. KONTAKTIER DEVS FÜR FRAGEN
+
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -5,6 +10,7 @@
 #include "UI.h"
 #include <iterator>
 #include <vector>
+#include <string>
 #include <conio.h>
 #include "saveload.h"
 
@@ -98,8 +104,8 @@ void poss(){
 			
 			for(int c = 0; c < len; ++c){
 				//wenn irgendwelche charactere von spieler passen für des rechner
-				if (!matched[c]&&currentgameletters[i]==playerguess[c]){
-					result[c] = '-';
+				if (!matched[c]&&currentgameletters[i] == playerguess[c]){
+					result[i] = '-';
 					matched[c]= true;
 					break;
 				}
@@ -113,8 +119,10 @@ void poss(){
 }
 
 
+
 void playy(bool newg,bool loadgletters){
 	
+	pss("sounds/menuing.wav");
 	string availablecols;
 	
 	player pl;
@@ -129,24 +137,26 @@ void playy(bool newg,bool loadgletters){
 	//gleiche wie maximal, änderbar in main
 	
 	
-	effect("Du hast 10 Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n"  
+	string text = "Du hast " + to_string(cur_tries) + " Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n"  
 	"\n tip: \n + bedeutet das die Farbe an richtiger stelle ist"
-	"\n - bedeutet das es die Farbe gibt, aber an falscher stelle."
-	"\n use color codes for as answer (rgbp): ", 300);
+	"\n - bedeutet das es die Farbe gibt, aber an falscher stelle. und . for pausen menu"
+	"\n use color codes for as answer (RGBPWM): ";
+	effect(text, 300);
 	
 	grabfirstletterofarray(cols);
 	
 	//cout << availablecols;
 	
 	printf("\n");
-	cout << currentgameletters;
+
 	
 	
 	}else{
-	printf("Du hast 10 Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n");
+	
+	printf("Du hast ", cur_tries ," Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n");
 	printf("\n tip: \n + bedeutet das die Farbe an richtiger stelle ist");
-	printf("\n - bedeutet das es die Farbe gibt, aber an falscher stelle.");
-	printf("\n use color codes for as answer (rgbp): ");
+	printf("\n - bedeutet das es die Farbe gibt, aber an falscher stelle. und . for pausen menu");
+	printf("\n use color codes for as answer (RGBPWM): ");
 	grabfirstletterofarray(cols);
 	
 	
@@ -161,8 +171,9 @@ void playy(bool newg,bool loadgletters){
 		
 		currentgameletters = gameletters;
 	} 
-	cout << currentgameletters;
+
 	
+	//cout << currentgameletters;
 	
 	
 	
@@ -190,7 +201,7 @@ void playy(bool newg,bool loadgletters){
 			pausemen();
 		}
 		
-		cout << cur_tries << " left." << endl;	
+		cout << "noch " << cur_tries << " versuche uebrig." << endl;	
 		cur_tries--;
 		
 	}
@@ -280,10 +291,12 @@ void playy(bool newg,bool loadgletters){
 				save = true;
 				winstreak = 0;
 				men(false);
+				cur_tries = max_tries;
 				break;
 			}
 				case 'n': case '2':
 					{
+						cur_tries = max_tries;
 						men(false);
 					save = true;
 					break;

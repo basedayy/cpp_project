@@ -1,6 +1,8 @@
 //ayhamAQ
 //save func
 
+
+// WARNING: RELEASE VERSION. DONT MESS WITH IT. KONTAKTIER DEVS FÜR FRAGEN
 #include <vector> //vector ist eine dynamischer array
 #include <fstream> //file stream (datei ändern)
 #include <iostream>

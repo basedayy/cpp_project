@@ -2,6 +2,8 @@
 //Jan Fribus
 //Vinzenz Schoch
 //UI code
+
+// WARNING: RELEASE VERSION. DONT MESS WITH IT. KONTAKTIER DEVS FÜR FRAGEN
 #include <iostream>
 #include <stdlib.h>
 #include "game.h"
@@ -9,7 +11,7 @@
 #include <conio.h>
 #include "UI.h"
 #include "saveload.h"
-
+#pragma comment(lib,"winmm.lib")
 
 using namespace std;
 extern char ioption;
@@ -21,6 +23,14 @@ extern int cur_tries;
 extern int winstreak;
 extern string currentgameletters;
 //string Title = "\n \n \n \21 Welcome to mastermind";
+
+
+void pss(LPCSTR soundloc){
+	PlaySoundA(soundloc,NULL,SND_FILENAME | SND_ASYNC);
+}
+void sts(){
+	PlaySound(NULL,NULL,0);
+}
 
 
 void pausemen(){
@@ -59,14 +69,17 @@ void pausemen(){
 				
 				savegame(player,filename,true,cur_tries,currentgameletters);	
 				pause = false;	
+				cur_tries = max_tries;
 				men(false);		
 				break;
 				}
 				
 			case 3:
 				{
-				men(false);
+				cur_tries = max_tries;
 				pause = false;	
+				men(false);
+				
 				break;
 				}
 
@@ -153,66 +166,62 @@ void creds(){
 }
 
 void settingsmen(){
-	ioption = 0;
-	system("cls");
-	printf("\n \n \n");
-	stclr(2);
-	printf("\t 1 - set game color length\n \n");
-	stclr(3);
-	printf("\t 2 - Maximale Versuche\n \n ");
-	stclr(5);
-	printf("\t 3 - credits\n \n");
-	stclr(4);
-	printf("\t 4 - back\n \n");
-	stclr(15);
+	
+	bool optpick = false;
+    while(!optpick)
+	{
+		 
+		char option;
+		system("cls");
+		printf("\n \n \n");
+		stclr(2);
+		printf("\t 1 - set game color length\n \n");
+		stclr(3);
+		printf("\t 2 - Maximale Versuche\n \n ");
+		stclr(5);
+		printf("\t 3 - credits\n \n");
+		stclr(4);
+		printf("\t 4 - back\n \n");
+		stclr(15);
 	
 	
-	scanf("%i",&ioption);
-	
-	
-	//bool bpicked = false;
-   // while(ioption < 1 || ioption > 4)
-//	{
+		scanf("%s",&option);
 		
-			switch(ioption)
+			switch(option)
 		{
-			case 1:
+			case '1':
 				int templen;
 				printf("enter the value for color length ");
 				scanf("%i", &templen);
 				length = templen;
 				templen = 0;
-				settingsmen();
+			//	settingsmen();
 				break;
-			case 2:
+			case '2':
 			int temptries;
 				printf("Gibt die Maximale an Versuchen ein: ");
 				scanf("%i", &temptries);
 				max_tries = temptries;
 				temptries = 0;
-			settingsmen();	
+			//settingsmen();	
 			break;
-			case 3:
+			case '3':
 				creds();
 			//	bpicked = true;
 			break;
-			case 4:
+			case '4':
+				optpick = true;
 				men(false);
 				return;
 			//	bpicked = true;
 			break;
 			default:
 				printf("Falsch... Versuchs nochmal.");
-				system("cls");
-				printf("\n \n \n");
-				printf("\t 1 - set game color length\n \n");
-				printf("\t 2 - Max versuche eingebn\n \n ");
-				printf("\t 3 - credits\n \n");
-				printf("\t 4 - back\n \n");
-				
+				break;
 			 	
 			
-			}
+		}
+	}
 }
 
 
