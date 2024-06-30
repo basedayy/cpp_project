@@ -1,7 +1,7 @@
 //AYHAM AQ, JAN FB, VINZ SCHOCH
 //GAME CODE
 
-// WARNING: RELEASE VERSION. DONT MESS WITH IT. KONTAKTIER DEVS FÜR FRAGEN
+// WARNING: RELEASE VERSION. DONT MESS WITH IT. KONTAKTIER DEVS FÃœR FRAGEN
 
 #include <iostream>
 #include <cstdlib>
@@ -79,9 +79,9 @@ void poss(){
 		}
 		
 		vector<bool> matched(playerguess.size(), false);
-		//länge von der wort holen ( also wie viele buchstaben.)
+		//lÃ¤nge von der wort holen ( also wie viele buchstaben.)
 	int len = min(currentgameletters.size(),playerguess.size());
-	//neue string für die results (alles falsch wird nicht markiert)
+	//neue string fÃ¼r die results (alles falsch wird nicht markiert)
 	string result(len, ' ');
 	
 	//erste schritt. filter alle richtige mit =
@@ -99,11 +99,11 @@ void poss(){
 	
 	//markiere alles mit tilde wenn es richtige farbe aber in falscher position
 	for (int i = 0; i < len; ++i){
-		//nür für die leere stellen die nicht korrigiert sind prüfen 
+		//nÃ¼r fÃ¼r die leere stellen die nicht korrigiert sind prÃ¼fen 
 		if (result[i] == ' '){
 			
 			for(int c = 0; c < len; ++c){
-				//wenn irgendwelche charactere von spieler passen für des rechner
+				//wenn irgendwelche charactere von spieler passen fÃ¼r des rechner
 				if (!matched[c]&&currentgameletters[c] == playerguess[i]){
 					result[i] = '-';
 					matched[c]= true;
@@ -113,7 +113,7 @@ void poss(){
 		}
 	}
 	
-	//den antwort drücken aber mit ~ =
+	//den antwort drÃ¼cken aber mit ~ =
 	cout << "\n" << result << endl;
 	
 }
@@ -134,14 +134,14 @@ void playy(bool newg,bool loadgletters){
 	if(newg){
 		
 		shuffle(cols,arrlength);
-	//gleiche wie maximal, änderbar in main
+	//gleiche wie maximal, Ã¤nderbar in main
 	
 	
 	string text = "Du hast " + to_string(cur_tries) + " Versuche. Solltest du es nicht schaffen Verlierst du. GO!\n"  
 	"\n tip: \n + bedeutet das die Farbe an richtiger stelle ist"
 	"\n - bedeutet das es die Farbe gibt, aber an falscher stelle. und . for pausen menu"
 	"\n . es gibt " + to_string(length) +" stellen."
-	"\n use color codes for as answer (RGBPWM): ";
+	"\n use color codes for as answer (rgbpwm): ";
 	effect(text, 300);
 	
 	grabfirstletterofarray(cols);
