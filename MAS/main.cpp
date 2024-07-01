@@ -84,7 +84,7 @@ void men(bool firsttime) {
         	prntcrtxt(Title, 400);
         	prntonce = true;
         	
-        	if(roul < 3){
+        	if(roul < 2){
 		pss("sounds/test.wav");
 			play =true;
 		}

@@ -207,6 +207,8 @@ void settingsmen(){
 				break;
 			case '2':
 			int temptries;
+			{
+			
 				printf("Gibt die Maximale an Versuchen ein: ");
 				scanf("%i", &temptries);
 				if(temptries <1){
@@ -219,6 +221,7 @@ void settingsmen(){
 				
 				temptries = 0;
 			//settingsmen();	
+			}
 			break;
 			case '3':
 				creds();

@@ -24,7 +24,7 @@ int arrlength = 6;
 int randindex = 0;
 string playerguess;
 int gameopt;
-int cur_tries = 10;
+int cur_tries;
 string gameletters;
 string currentgameletters;
 bool win = false;
@@ -121,6 +121,8 @@ void poss(){
 
 
 void playy(bool newg,bool loadgletters){
+	
+	cur_tries = max_tries;
 	
 	pss("sounds/menuing.wav");
 	string availablecols;
