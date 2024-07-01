@@ -122,7 +122,14 @@ void poss(){
 
 void playy(bool newg,bool loadgletters){
 	
-	cur_tries = max_tries;
+	
+	if (loadgletters){
+		
+	}
+	else {
+		cur_tries = max_tries;
+	}
+	
 	
 	pss("sounds/menuing.wav");
 	string availablecols;
