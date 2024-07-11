@@ -1,10 +1,10 @@
-//ayhamAQ
+//ay AQ
 //save func
 
 
-// WARNING: RELEASE VERSION. DONT MESS WITH IT. KONTAKTIER DEVS FÜR FRAGEN
+// WARNING: RELEASE VERSION. DONT MESS WITH IT. KONTAKTIER DEVS FÃœR FRAGEN
 #include <vector> //vector ist eine dynamischer array
-#include <fstream> //file stream (datei ändern)
+#include <fstream> //file stream (datei Ã¤ndern)
 #include <iostream>
 #include <string>
 #include "saveload.h"
@@ -109,7 +109,7 @@ void savegame(const player playerr,const string filename,bool ingame,int currtri
 	
 	int playerselopt;
 	bool plselected = false;
-	//solange keinspieler würde genomen
+	//solange keinspieler wÃ¼rde genomen
 	while(!plselected) {
 		
 		cout << "Spieler auswahl!" << endl;
@@ -118,7 +118,7 @@ void savegame(const player playerr,const string filename,bool ingame,int currtri
 		
 		if(cin.fail() || playerselopt < 1 || playerselopt > static_cast<int>(players.size())){
 			cin.clear();
-			//ignoriert alle die über der spielerzahl oder unter 1 oder wenn es eine buchstabe wäre.
+			//ignoriert alle die Ã¼ber der spielerzahl oder unter 1 oder wenn es eine buchstabe wÃ¤re.
 			
 			cin.ignore(numeric_limits<streamsize>::max(),'\n');
 			
