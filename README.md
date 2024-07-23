@@ -9,4 +9,4 @@ das ist der release version. hier ich, mit Jan und Vinezenz. Sind mit der code f
 - habe fast alles getestet. wenn noch ein bug gibt kannst dann auf der ISSUES tab reporten.
 
 
-# Danke für Jan Und Vinz für gute teamwork
+# Danke für J Und V für gute teamwork
